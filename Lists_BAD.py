@@ -7,7 +7,7 @@ def slow_print(t): #makes text print slower
     for l in t:
         sys.stdout.write(l)
         sys.stdout.flush()
-        time.sleep(0.1) #change this to change speed
+        time.sleep(0.05) #change this to change speed
     print(' ') #dont touch this
     
 def combat(player,weapn, battle,):
@@ -23,6 +23,7 @@ def combat(player,weapn, battle,):
 1. Attack
 2. Run Away
 >>> """)
+                choices.append(choice)
                 if choice == '1':
                     slow_print (f"You Swing with your {attack}!")
                     hp -= damage
@@ -57,6 +58,7 @@ def combat(player,weapn, battle,):
 1. Attack
 2. Run Away
 >>> """)
+                choices.append(choice)
                 if choice == '1':
                     slow_print (f"You Swing with your {attack}!")
                     hp -= damage
@@ -91,6 +93,7 @@ def combat(player,weapn, battle,):
 1. Attack
 2. Run Away
 >>> """)
+                choices.append(choice)
                 if choice == '1':
                     slow_print (f"You Swing with your {attack}!")
                     hp -= damage
@@ -140,6 +143,7 @@ choice =input('''Grab it?
 1. Yes
 2. No
 >>>''')
+choices.append(choice)
 if choice == '1':
     backpack.append('Dagger')
     slow_print('You Grab the Dagger and put it in your pack')
@@ -150,22 +154,52 @@ elif choice == '3':
     backpack.append('Glock')
 else:
     slow_print('Goodjob, Dumbass. Restart!')
-choices.append(choice)
+    quit()
 slow_print('Leaving the house, you see town in the distance, with a Castle behind it.')
-slow_print('Heading into town, you see a horde of goblins leaving town, and the remaining townsfolk gaurded by a single remaining goblin.')
+slow_print('Heading into town, you see a horde of goblins leaving, and the remaining townsfolk gaurded by a single remaining goblin.')
 choice = input("""What do you do?
 1. confront the goblin
 2. sneak around the goblin
 >>>""")
+choices.append(choice)
 if choice == '1':
     if 'Glock' in backpack:
         slow_print('Walking towards the goblin, you shoot it in the face and it dies on the spot.')
-    elif 'Dagger' in backpack:
+    else:
         slow_print('Brandishing your dagger,you walk up to the goblin and initiate combat')
         battle = 1
-        combat(player, weapon, damage, battle,)
-    print('You Gained the Goblins Short Sword')
-    backpack.append('Short Sword')
-    time.sleep(.5)
-    slow_print('Releasing the townfolk, they give you food and water to heal up, before pointing you in the direction of the emperors castle')
-    slow_print('"Oh please kind adventurer, free us from his tyranny!"')
+        combat(player, weapon, battle,)
+if choice == '2':
+    slow_print('You slowly make your way around the cage, and move to follow the receding horde')
+    slow_print('Unfortunatley for you, there was another goblin hiding around the back of the people')
+    battle = 1
+    combat(player, weapon, battle,)
+print('You Gained the Goblins Short Sword')
+backpack.append('Short Sword')
+time.sleep(.5)
+slow_print('Releasing the townfolk, they give you food and water to heal up, before pointing you in the direction of the emperors castle')
+slow_print('"Oh please kind adventurer, free us from his tyranny!"')
+time.sleep(.5)
+slow_print('Making your way to the castle, Short Sword in hand, you encounter a fork in the road.')
+slow_print('Ahaed of you, the castle awaits atop its treachorous hill.')
+slow_print('To your right, a secluded path through the woods, full of a dense fog, and promise of adventure.')
+choice = input("""Where do you go:
+1. To the castle
+2. Through the woods
+>>> """)
+choices.append(choice)
+if choice == '2':
+    slow_print("Turning towards the woods, you go to take a step forwards, when you're knocked on your ass by a gust of wind")
+    slow_print('A loud voice echoes through the trees, "Thou contain not the knowledge nor power to enter these woods."')
+    slow_print('You decide to leave. For now...')
+slow_print('Walking towards the castle, you easily take out a couple of Goblins.')
+slow_print('Reaching the base of the hill, you see the large footprints of an Orc')
+slow_print('Turning around, the ugly beast stands before you.')
+if 'Glock' in backpack:
+    slow_print('Aiming your glock, the shot misses the slobering beast, before ricocheting off a tree, and nailing the beast in the nuts.')
+else:
+    battle = 2
+    combat(player, weapon, battle)
+print("You gained the Orc's Club!")
+time.sleep(.5)
+slow_print('Walking past the crumpled body of the Orc with your new found club, you make your way to the summit and enter the castle.')
