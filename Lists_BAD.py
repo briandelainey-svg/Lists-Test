@@ -114,7 +114,7 @@ def combat(player,weapn, battle,):
                         print('Game Over')
                         quit()
                 if hp <= 0:
-                    slow_print (f"The Orc Died!")
+                    slow_print (f"The Dragon Died!")
                 if health <= 0:
                     slow_print ('You Died')
                     print ('Game Over')
@@ -123,14 +123,16 @@ weapon = { #Weapon dictionary with damage
     'Dagger': 2,
     'Short Sword': 5,
     'Club' : 20,
-    'Glock': 999
+    'Glock': 999,
+    'Great Claw' : 200
 }
 monster = { #Monster dictionary with health
     'Goblin': 10,
     'Orc': 25,
-    'Dragon': 100
+    'Dragon': 100,
+    'The Deep': 1000
 }
-location = ['Home', 'Town', 'Castle', 'Dungeon']#not used by game
+location = ['Home', 'Town', 'Castle', 'Dungeon', 'The Woods']#not used by game
 choices = [] #all player choices
 backpack = [] #players items
 player = 50 #players health
@@ -139,6 +141,7 @@ player = 50 #players health
 slow_print('You wake up')
 slow_print("You're at home. but which home?")
 slow_print("There's a Dagger on your bedside table.")
+
 choice =input('''Grab it?
 1. Yes
 2. No
@@ -155,8 +158,10 @@ elif choice == '3':
 else:
     slow_print('Goodjob, Dumbass. Restart!')
     quit()
+    
 slow_print('Leaving the house, you see town in the distance, with a Castle behind it.')
 slow_print('Heading into town, you see a horde of goblins leaving, and the remaining townsfolk gaurded by a single remaining goblin.')
+
 choice = input("""What do you do?
 1. confront the goblin
 2. sneak around the goblin
@@ -167,22 +172,29 @@ if choice == '1':
         slow_print('Walking towards the goblin, you shoot it in the face and it dies on the spot.')
     else:
         slow_print('Brandishing your dagger,you walk up to the goblin and initiate combat')
-        battle = 1
+        battle = 3
         combat(player, weapon, battle,)
-if choice == '2':
+        
+elif choice == '2':
     slow_print('You slowly make your way around the cage, and move to follow the receding horde')
     slow_print('Unfortunatley for you, there was another goblin hiding around the back of the people')
     battle = 1
     combat(player, weapon, battle,)
+else:
+    slow_print('Goodjob, Dumbass. Restart!')
+    quit()
 print('You Gained the Goblins Short Sword')
 backpack.append('Short Sword')
+
 time.sleep(.5)
 slow_print('Releasing the townfolk, they give you food and water to heal up, before pointing you in the direction of the emperors castle')
 slow_print('"Oh please kind adventurer, free us from his tyranny!"')
+
 time.sleep(.5)
 slow_print('Making your way to the castle, Short Sword in hand, you encounter a fork in the road.')
 slow_print('Ahaed of you, the castle awaits atop its treachorous hill.')
 slow_print('To your right, a secluded path through the woods, full of a dense fog, and promise of adventure.')
+
 choice = input("""Where do you go:
 1. To the castle
 2. Through the woods
@@ -192,14 +204,73 @@ if choice == '2':
     slow_print("Turning towards the woods, you go to take a step forwards, when you're knocked on your ass by a gust of wind")
     slow_print('A loud voice echoes through the trees, "Thou contain not the knowledge nor power to enter these woods."')
     slow_print('You decide to leave. For now...')
-slow_print('Walking towards the castle, you easily take out a couple of Goblins.')
-slow_print('Reaching the base of the hill, you see the large footprints of an Orc')
-slow_print('Turning around, the ugly beast stands before you.')
-if 'Glock' in backpack:
-    slow_print('Aiming your glock, the shot misses the slobering beast, before ricocheting off a tree, and nailing the beast in the nuts.')
+elif choice == '1':
+    slow_print('Walking towards the castle, you easily take out a couple of Goblins.')
+    slow_print('Reaching the base of the hill, you see the large footprints of an Orc')
+    slow_print('Turning around, the ugly beast stands before you.')
+    if 'Glock' in backpack:
+        slow_print('Aiming your glock, the shot misses the slobering beast, before ricocheting off a tree, and nailing the beast in the nuts.')
+    else:
+        battle = 2
+        combat(player, weapon, battle)
 else:
-    battle = 2
-    combat(player, weapon, battle)
+    slow_print('Goodjob, Dumbass. Restart!')
+    quit()
 print("You gained the Orc's Club!")
 time.sleep(.5)
+
 slow_print('Walking past the crumpled body of the Orc with your new found club, you make your way to the summit and enter the castle.')
+slow_print('Walking inside the throne room, you see his majesty in all his horrid glory, sitting atop his seat.')
+slow_print('"So." he says, "You have come to challenge me. well I promise it would not be an easy fight, but I have no intention to fight you myself."')
+slow_print('The Emperor reaches behind his throne, and pulls a rope you had previously disregarded.')
+slow_print('The floor beneath you drops out, and you land in the dungeons.')
+slow_print('You wake in a dark room. Seemingly a large chamber, you can hear every breath echo back at you.')
+slow_print('Sitting up, you see a line of lanterns light up along the walls of what seems to be an ancient ball room.')
+slow_print('As you make to leave, you hear a loud roar echo behind you.')
+
+choice = input("""What do you do?
+1. Rush out of the room
+2. Turn toward the thunderous noise
+>>> """)
+choices.append(choice)
+if choice == '1':
+    slow_print('Sprinting out of the room, you find yourself in front of a massive Dragon, roaring into a tube.')
+elif choice == '2':
+    slow_print('Cautiously mking your way towards the end of the room, you see, hidden in the shadows, a large horn, through which the roar eminates.')
+    slow_print("Turning around, you see the Dragon exit it's room")
+else:
+    slow_print('Goodjob, Dumbass. Restart!')
+    quit()
+slow_print("The dragon spots you, and prepares for it's snack.")
+if 'Glock' in backpack:
+    slow_print('You Take out your Glock and nail the dragon right between the eyes.')
+else:
+    battle = 3
+    combat(player, weapon, battle)
+
+slow_print('Deafeating the dragon, you see it disintigrate before your eyes, until all that remains is one of the beasts claws, attached to a long hilt.')
+print("You gained the Great Claw!")
+time.sleep(.5)
+slow_print('Walking out of the dungeon, you exit behind the throne room, next to the king.')
+
+choice = input ('''What do you do?:
+1. Kill the King and rejoice with the villagers
+2. Leave the King to his plans and head home
+>>> ''')
+choices.append(choice)
+if choice == '1':    
+    else:
+        slow_print('You slit the kings throat with the Dragons claw. you see his head drop to the floor.')
+elif choice == '2':
+elif choice == '3':
+    if 'Glock' in backpack:
+        slow_print('You take out your trusty glock. only 1 shell left.')
+        slow_print('You end his life with the same weapon that has taken down even a mighty Dragon')
+        slow_print('Heading down the hill, you remember those strange woods.')
+        slow_print('Approaching the crossroads, you see the fog that once settled over the path has dissipated.')
+    else:
+        slow_print('Goodjob, Dumbass. Restart!')
+        quit()
+else:
+    slow_print('Goodjob, Dumbass. Restart!')
+    quit()
