@@ -259,15 +259,29 @@ choice = input ('''What do you do?:
 >>> ''')
 choices.append(choice)
 if choice == '1':    
-    else:
-        slow_print('You slit the kings throat with the Dragons claw. you see his head drop to the floor.')
+    slow_print('You slit the kings throat with the Dragons claw. you see his head drop to the floor.')
+    slow_print('Gripping the Rulers scalp, you make your way out of the castle and down the hill.')
+    slow_print('Reaching town, the villagers celebrate late into the night. Rejoicing over there new found freedom.')
+    time.sleep(1)
+    slow_print('But peace cannot last forever. Without a ruler, the town falls to anarchy.')
 elif choice == '2':
+    slow_print('You and the king talk. Land cannot maintain peace without a common aspect. A king to rule. A tyrant to hate.')
+    slow_print('You could have ended this. But you chose to listen to him. You return home. The townsfolk cheer at your return, but see you empty handed.')
+    slow_print('You are jeered and ridiculed. How could you do this? Leave them under his boot?')
+    time.sleep(1)
+    slow_print('But the land remains intact. War comes through, but the peolpe fight under 1 banner.')
+    slow_print('The king doesnt live forever. Eventually he is replaced, but you are never forgiven.')
 elif choice == '3':
     if 'Glock' in backpack:
-        slow_print('You take out your trusty glock. only 1 shell left.')
+        slow_print('You take out your trusty glock. only 1 shot left.')
         slow_print('You end his life with the same weapon that has taken down even a mighty Dragon')
         slow_print('Heading down the hill, you remember those strange woods.')
         slow_print('Approaching the crossroads, you see the fog that once settled over the path has dissipated.')
+        slow_print('You follow this overgrown path. Long forgotten, but still maintaned.')
+        slow_print('"Very few have found this place. Fewer have been able to walk it."')
+        slow_print('"Yet you, who have killed and slaughtered. You walk this trail, without knowing its purpose, and as such, will never find it'"'"'s end"')
+        slow_print('You turn around and see the start of the path right behind you. You go to leave, but find you move nary an inch.')
+        slow_print("You're stuck. Doomed to stay and watch. Never able to interfere.'")
     else:
         slow_print('Goodjob, Dumbass. Restart!')
         quit()
